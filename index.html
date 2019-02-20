@@ -1,7 +1,271 @@
 <!DOCTYPE html>
 <html>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/ScrollMagic.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/plugins/debug.addIndicators.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/plugins/animation.gsap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/plugins/animation.velocity.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenLite.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TimelineMax.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+<style type="text/css">
+.panel {
+	height: 100%;
+	width: 100%;
+}
+.panel.green {
+	margin-bottom: 400px
+}
+body {
+  height: 100%;
+  overflow: scroll;
+}
+b{
+	text-align: center;
+	vertical-align: middle;
+	position: relative;
+	overflow: visible;
+    display: block;
+	color: white;
+}
+.ui.menu {
+    border-radius: 0px !important;
+}
+.first_column{
+	height:0vh;
+	transition: height 0.5s linear;
+}
+.show{
+	height: 35vh;
+	visibility: visible;
+}
+#column_black{
+	top: 100%;
+	position: relative;
+	transition: all 1s ease-out;
+	height: 100%;
+}
+.show_black{
+	top:0 !important;
+}
+#column_image{
+	height:0;
+	transition: all 1s ease-out;
+}
+.show_image{
+	height: 100% !important;
+}
+#text-area{
+	position: absolute;
+	top:40%;
+}
+.third_column{
+	height: 35vh;
+}
+.ini_container{
+	left: 100%;
+	position: relative;
+	transition: all 1s ease-out;
+	width: 100%;
+}
+</style>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+<div class="ui top fixed borderless menu">
+	<div class="left menu">
+		<div class="ui item">
+			<i class="bug icon"></i>
+		</div>
+	</div>
+		<a class="ui item" style="margin-left: 35%;" href="#first">
+			First
+		</a>
+		<a class="ui item" href="#second">
+			Second
+		</a>
+		<a class="ui item" href="#third">
+			Third
+		</a>
+		<a class="ui item" href="#fourth">
+			Fourth
+		</a>
+	<div class="right menu">
+		<a class="ui item">
+			Log in
+		</a>
+		<div class="item">
+			<div class="ui icon input">
+				<input type="text" placeholder="Search...">
+				<i class="search link icon"></i>
+			</div>
+		</div>
+
+	</div>
+</div>
+<div style="height : 100vh;">
+	<section class="panel blue" id="first" style="background-image: url('https://images.pexels.com/photos/1416169/pexels-photo-1416169.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');">
+	</section>
+	<div id="trigger1"></div>
+	<section class="panel turqoise" id="second"style="background: white;">
+	<div class="spacer s2">
+		<div style="margin 0 auto;">
+			<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="350" height="200">
+				<path id="word" style="stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1009.23px; stroke-dashoffset: 1009.23px;" fill="none" stroke="#000000" stroke-width="5" d="M22.328,70.018c9.867-7.4,10.724,20.434,13.014,28.694c-0.08-9.105-1.308-31.463,11.936-31.886
+						c11.313-0.361,17.046,19.368,16.367,28.098c-1.432-10.289,6.234-30.682,18.163-25.671c11.505,4.833,8.682,26.772,20.071,31.964
+						c13.06,5.953,14.854-8.305,19.734-17.017c7.188-12.836,4.933-15.417,29.6-14.8c-8.954-3.842-37.42,1.728-28.539,20.1
+						c5.823,12.045,34.911,12.583,30.018-8.873c-5.385,17.174,24.01,23.104,24.01,9.123c0-9.867,3.816-15.937,16.034-18.5
+						c8.359-1.754,18.982,4.754,25.9,9.25c-10.361-4.461-51.941-13.776-37.749,12.357c9.435,17.372,50.559,2.289,33.477-6.063
+						c-2.871,19.008,32.415,31.684,30.695,54.439c-2.602,34.423-66.934,24.873-79.302,2.134c-13.11-24.101,38.981-36.781,54.798-40.941
+						c8.308-2.185,42.133-12.162,25.88-25.587c-2.779,17.058,19.275,28.688,29.963,12.911c6.862-10.131,6.783-25.284,30.833-19.117
+						c-9.404-0.429-32.624-0.188-32.864,18.472c-0.231,17.912,21.001,21.405,40.882,11.951"></path>
+				<path id="dot" style="stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 44.2974px; stroke-dashoffset: 44.2974px;" fill="none" stroke="#000000" stroke-width="5" d="M247.003,38.567c-7.423,1.437-11.092,9.883-1.737,11.142c14.692,1.978,13.864-13.66,1.12-8.675"></path>
+			</svg>
+		</div>
+		<div class="ui container">
+			<div class="ui stackable three column grid">
+				<div class="column">
+					<div class="image">
+						<img class="first_column"src="https://images.pexels.com/photos/806408/pexels-photo-806408.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
+					</div>
+				</div>
+				<div class="column">
+					<div class="image">
+						<img class="first_column"src="https://images.pexels.com/photos/619419/pexels-photo-619419.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
+					</div>
+				</div>
+				<div class="column">
+					<div class="image">
+						<img class="first_column"src="https://images.pexels.com/photos/1270184/pexels-photo-1270184.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</section>
+	<div id="trigger2"></div>
+	<section class="panel green" id="third" style="background: white;">
+		<div class="ui stackable two column grid" style="height:100%">
+			<div class="column" id="column_black" style="background: black;height: 100%">
+				<div id="text-area">
+					<h1 style="color: white;font-family:fantasy ;font-size: 50px;float:left;">
+						<b>NCKU EE</b>
+					</h1>
+					<h3 style="color: gray; font-family:fantasy; font-size:30px">
+					Programming Experience :<br>
+							Java,Python,C
+					</h3>
+				</div>
+			</div>
+			<div class="column" id="column_image" style="background-image: url('https://images.pexels.com/photos/268833/pexels-photo-268833.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500');">
+
+			</div>
+		</div>
+	</section>
+	<div id="trigger3"></div>
+	<section class="panel bordeaux" id= "fourth"style="background: white; height: 100%;">
+		<div class="ui container" id="ini_container">
+			<div class="ui stackable three column grid">
+				<div class="column">
+					<div class="effect">
+						<div class="image">
+							<img class="third_column"src="https://images.pexels.com/photos/35179/lonely-portrait-advertisement-black-and-white.jpg?auto=compress&cs=tinysrgb&dpr=2&w=500">
+						</div>
+					</div>
+				</div>
+				<div class="column">
+					<div class="effect">
+						<div class="image">
+							<img class="third_column"src="https://images.pexels.com/photos/1343298/pexels-photo-1343298.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500">
+						</div>
+					</div>
+				</div>
+				<div class="column">
+					<div class="effect">
+						<div class="image">
+							<img class="third_column"src="https://images.pexels.com/photos/210916/pexels-photo-210916.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div style="position: absolute; left: 33%; top:50vh; "><h1 style="font-size:70px;font-family:oblique;">MORE INFO</h1></div>
+		<div style="position: absolute; left: 45%; top:70vh; "><a href="https://github.com/changchiajung"><i class="github icon"></i></a></div>
+		<div style="position: absolute; left: 50%; top:70vh; "><a href="https://www.facebook.com/groups/nckuwebdesign/?ref=br_rs"><i class="facebook icon"></i></a></div>
+		<div style="position: absolute; left: 55%; top:70vh; "><a href="https://www.instagram.com/"><i class="instagram icon"></i></a></div>
+		<div style="position: absolute; left: 60%; top:70vh; "><a href="https://plus.google.com/discover"><i class="google plus icon"></i></a></div>
+		<div style="position: absolute; left: 33%; top:90vh; "><h2 style="font-size: 20px; font-family:italic;"><pre>NCKU     User     Interface     Practice</pre></h2></i></div>
+	</section>
+</div>
+<script>
+	$(function () { // wait for document ready
+		// init
+		var controller = new ScrollMagic.Controller({
+			globalSceneOptions: {
+				triggerHook: 'onLeave'
+			}
+		});
+
+		// get all slides
+		var slides = document.querySelectorAll("section.panel");
+
+		// create scene for every slide
+		for (var i=0; i<slides.length; i++) {
+			new ScrollMagic.Scene({
+					triggerElement: slides[i]
+				})
+				.setPin(slides[i])
+				//.addIndicators() // add indicators (requires plugin)
+				.addTo(controller);
+		}
+		var controller_second = new ScrollMagic.Controller();
+		var scene = new ScrollMagic.Scene({triggerElement: "#trigger1"})
+					.setClassToggle(".first_column","show")
+					//.setVelocity(".ui .card",{opacity: 1},{duration: 400})
+					.addTo(controller_second);
+		var controller_third = new ScrollMagic.Controller();
+		var scene_third = new ScrollMagic.Scene({triggerElement: "#trigger2"})
+							.setClassToggle("#column_black","show_black")
+							.addTo(controller_third)
+		var controller_third_image = new ScrollMagic.Controller();
+		var scene_third_image = new ScrollMagic.Scene({triggerElement: "#trigger2"})
+							.setClassToggle("#column_image","show_image")
+							.addTo(controller_third_image)
+		var controller_fourth = new ScrollMagic.Controller();
+		var scene_fourth = new ScrollMagic.Scene()
+	});
+
+</script>
+<script>
+	function pathPrepare ($el) {
+		var lineLength = $el[0].getTotalLength();
+		$el.css("stroke-dasharray", lineLength);
+		$el.css("stroke-dashoffset", lineLength);
+	}
+
+	var $word = $("path#word");
+	var $dot = $("path#dot");
+
+	// prepare SVG
+	pathPrepare($word);
+	pathPrepare($dot);
+
+	// init controller
+	var controller = new ScrollMagic.Controller();
+
+	// build tween
+	var tween = new TimelineMax()
+		.add(TweenMax.to($word, 0.9, {strokeDashoffset: 0, ease:Linear.easeNone})) // draw word for 0.9
+		.add(TweenMax.to($dot, 0.1, {strokeDashoffset: 0, ease:Linear.easeNone}))  // draw dot for 0.1
+		.add(TweenMax.to("path", 1, {stroke: "#000000", ease:Linear.easeNone}), 0);			// change color during the whole thing
+
+	// build scene
+	var scene = new ScrollMagic.Scene({triggerElement: "#trigger1", duration: 100, tweenChanges: true})
+					.setTween(tween)
+					.addTo(controller);
+</script>
+
 </body>
 </html>
