@@ -74,22 +74,22 @@ b{
 }
 </style>
 <body>
-<div class="ui top fixed borderless menu">
+<div class="ui top fixed borderless menu" id="menu">
 	<div class="left menu">
 		<div class="ui item">
 			<i class="bug icon"></i>
 		</div>
 	</div>
-		<a class="ui item" style="margin-left: 35%;" href="#first">
+		<a class="ui item" style="margin-left: 35%;" href="">
 			First
 		</a>
-		<a class="ui item" href="#second">
+		<a class="ui item" href="#trigger1">
 			Second
 		</a>
-		<a class="ui item" href="#third">
+		<a class="ui item" href="#trigger2">
 			Third
 		</a>
-		<a class="ui item" href="#fourth">
+		<a class="ui item" href="#trigger3">
 			Fourth
 		</a>
 	<div class="right menu">
@@ -239,23 +239,6 @@ b{
 							.setClassToggle(".third_column","container_effect")
 							.addTo(controller_fourth)
 	});
-$(document).on('keypress',function(e) {
-    if(e.which == 13) {
-    	console.log(section%4);
-		section +=1;
-		var url = location.href;
-		if (section %4 ==0){
-			location.href = "#first";
-		}else if(section %4 ==1){
-			location.href = "#second";
-		}else if(section %4 ==2){
-			location.href = "#third";
-		}else{
-			location.href = "#fourth";
-		}
-		history.replaceState(null,null,url);
-    }
-});
 </script>
 <script>
 	function pathPrepare ($el) {
@@ -284,6 +267,26 @@ $(document).on('keypress',function(e) {
 	var scene = new ScrollMagic.Scene({triggerElement: "#trigger1", duration: 100, tweenChanges: true})
 					.setTween(tween)
 					.addTo(controller);
+</script>
+<script>
+	$(document).on('keypress',function(e) {
+    if(e.which == 13) {
+    	console.log(section%4);
+		section +=1;
+		var url = location.href;
+		if (section %4 ==0){
+			location.href = "";
+		}else if(section %4 ==1){
+			location.href = "#trigger1";
+		}else if(section %4 ==2){
+			location.href = "#trigger2";
+		}else{
+			location.href = "#trigger3";
+		}
+		history.replaceState(null,null,url);
+    }
+});
+
 </script>
 </body>
 </html>
