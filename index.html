@@ -10,15 +10,15 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TimelineMax.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
+<script src="./progressbar.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
 <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
 <style type="text/css">
 .panel {
-	height: 100%;
+	height: 130%;
 	width: 100%;
 }
 .panel.green {
-	margin-bottom: 400px
 }
 body {
   height: 100%;
@@ -37,7 +37,7 @@ b{
 }
 .first_column{
 	height:0vh;
-	transition: height 0.5s linear;
+	transition: height 0.3s	;
 }
 .show{
 	height: 35vh;
@@ -71,6 +71,14 @@ b{
 }
 .container_effect{
 	opacity:1 !important;
+}
+#container {
+  margin: 20px;
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  top:40vh;
+  left: 40vw;
 }
 </style>
 <body>
@@ -106,12 +114,13 @@ b{
 	</div>
 </div>
 <div style="height : 100vh;">
-	<section class="panel blue" id="first" style="background-image: url('https://images.pexels.com/photos/1416169/pexels-photo-1416169.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');">
+	<section class="panel blue" id="first" style="background-size:cover;background-image: url('https://images.pexels.com/photos/316902/pexels-photo-316902.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500');">
+	<div id="container"></div>
 	</section>
 	<div id="trigger1"></div>
 	<section class="panel turqoise" id="second"style="background: white;">
 	<div class="spacer s2">
-		<div style="margin 0 auto;">
+		<div style="position: relative; left: 30%;">
 			<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="350" height="200">
 				<path id="word" style="stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1009.23px; stroke-dashoffset: 1009.23px;" fill="none" stroke="#000000" stroke-width="5" d="M22.328,70.018c9.867-7.4,10.724,20.434,13.014,28.694c-0.08-9.105-1.308-31.463,11.936-31.886
 						c11.313-0.361,17.046,19.368,16.367,28.098c-1.432-10.289,6.234-30.682,18.163-25.671c11.505,4.833,8.682,26.772,20.071,31.964
@@ -122,6 +131,7 @@ b{
 						c8.308-2.185,42.133-12.162,25.88-25.587c-2.779,17.058,19.275,28.688,29.963,12.911c6.862-10.131,6.783-25.284,30.833-19.117
 						c-9.404-0.429-32.624-0.188-32.864,18.472c-0.231,17.912,21.001,21.405,40.882,11.951"></path>
 				<path id="dot" style="stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 44.2974px; stroke-dashoffset: 44.2974px;" fill="none" stroke="#000000" stroke-width="5" d="M247.003,38.567c-7.423,1.437-11.092,9.883-1.737,11.142c14.692,1.978,13.864-13.66,1.12-8.675"></path>
+				<path id="content_svg" style="stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 44.2974px; stroke-dashoffset: 44.2974px;" fill="none" stroke="#000000" stroke-width="5" d="M247.003,38.567c-7.423,1.437-11.092,9.883-1.737,11.142c14.692,1.978,13.864-13.66,1.12-8.675"></path>
 			</svg>
 		</div>
 		<div class="ui container">
@@ -192,13 +202,57 @@ b{
 			</div>
 		</div>
 		<div style="position: absolute; left: 33%; top:50vh; "><h1 style="font-size:70px;font-family:oblique;">MORE INFO</h1></div>
-		<div style="position: absolute; left: 45%; top:70vh; "><a href="https://github.com/changchiajung"><i class="github icon"></i></a></div>
-		<div style="position: absolute; left: 50%; top:70vh; "><a href="https://www.facebook.com/groups/nckuwebdesign/?ref=br_rs"><i class="facebook icon"></i></a></div>
-		<div style="position: absolute; left: 55%; top:70vh; "><a href="https://www.instagram.com/"><i class="instagram icon"></i></a></div>
-		<div style="position: absolute; left: 60%; top:70vh; "><a href="https://plus.google.com/discover"><i class="google plus icon"></i></a></div>
+		<div style="position: absolute; left: 40%; top:70vh; "><a href="https://github.com/changchiajung"><i class="github icon"></i></a></div>
+		<div style="position: absolute; left: 45%; top:70vh; "><a href="https://www.facebook.com/groups/nckuwebdesign/?ref=br_rs"><i class="facebook icon"></i></a></div>
+		<div style="position: absolute; left: 50%; top:70vh; "><a href="https://www.instagram.com/"><i class="instagram icon"></i></a></div>
+		<div style="position: absolute; left: 55%; top:70vh; "><a href="https://plus.google.com/discover"><i class="google plus icon"></i></a></div>
 		<div style="position: absolute; left: 33%; top:90vh; "><h2 style="font-size: 20px; font-family:italic;"><pre>NCKU     User     Interface     Practice</pre></h2></i></div>
 	</section>
 </div>
+<script>
+var bar = new ProgressBar.Circle(container, {
+  color: '#aaa',
+  // This has to be the same size as the maximum width to
+  // prevent clipping
+  strokeWidth: 6,
+  trailWidth: 3,
+  easing: 'easeInOut',
+  duration: 1400,
+  text: {
+    autoStyleContainer: false
+  },
+  from: { color: '#aaa', width: 3 },
+  to: { color: '#000', width: 6 },
+  // Set default step function for all animate calls
+  step: function(state, circle) {
+    circle.path.setAttribute('stroke', state.color);
+    circle.path.setAttribute('stroke-width', state.width);
+
+    var value = Math.round(circle.value() * 100);
+    if (value === 0) {
+      circle.setText('PLAY?');
+    } else {
+      if(value === 100){
+      circle.setText("  ▶");
+      bar.text.style.color= "red";
+      bar.text.style.fontSize = '4rem';
+      bar.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
+      }else{
+      	circle.setText(value);
+		bar.text.style.color= "white";
+		bar.text.style.fontSize = '2rem';
+      }
+    }
+  }
+});
+bar.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
+bar.text.style.fontSize = '2rem';
+var time =0;
+$('#container').hover(function(){
+	time_count=setInterval(function(){if(time<100){time+=1;bar.animate(time/100,{duration:1});}else{}},20);
+},function(){clearInterval(time_count); time = 0; bar.animate(time)});
+
+</script>
 <script>
 	var section = 0;
 	$(function () { // wait for document ready
