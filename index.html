@@ -1,346 +1,674 @@
-<!DOCTYPE html>
-<html>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/ScrollMagic.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/plugins/debug.addIndicators.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/plugins/animation.gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/plugins/animation.velocity.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenLite.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TimelineMax.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
-<script src="./progressbar.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
-<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
-<style type="text/css">
-.panel {
-	height: 130%;
-	width: 100%;
-}
-.panel.green {
-}
-body {
-  height: 100%;
-  overflow: scroll;
-}
-b{
-	text-align: center;
-	vertical-align: middle;
-	position: relative;
-	overflow: visible;
-    display: block;
-	color: white;
-}
-.ui.menu {
-    border-radius: 0px !important;
-}
-.first_column{
-	height:0vh;
-	transition: height 0.3s	;
-}
-.show{
-	height: 35vh;
-	visibility: visible;
-}
-#column_black{
-	top: 100%;
-	position: relative;
-	transition: all 1s ease-out;
-	height: 100%;
-}
-.show_black{
-	top:0 !important;
-}
-#column_image{
-	height:0;
-	transition: all 1s ease-out;
-}
-.show_image{
-	height: 100% !important;
-}
-#text-area{
-	position: absolute;
-	top:40%;
-}
-.third_column{
-	height: 35vh;
-	opacity: 0;
-	transition: all 1s ease-out;
-	display: inline-block;
-}
-.container_effect{
-	opacity:1 !important;
-}
-#container {
-  margin: 20px;
-  width: 200px;
-  height: 200px;
-  position: absolute;
-  top:40vh;
-  left: 40vw;
-}
-</style>
-<body>
-<div class="ui top fixed borderless menu" id="menu">
-	<div class="left menu">
-		<div class="ui item">
-			<i class="bug icon"></i>
-		</div>
-	</div>
-		<a class="ui item" style="margin-left: 35%;" href="">
-			First
-		</a>
-		<a class="ui item" href="#trigger1">
-			Second
-		</a>
-		<a class="ui item" href="#trigger2">
-			Third
-		</a>
-		<a class="ui item" href="#trigger3">
-			Fourth
-		</a>
-	<div class="right menu">
-		<a class="ui item">
-			Log in
-		</a>
-		<div class="item">
-			<div class="ui icon input">
-				<input type="text" placeholder="Search...">
-				<i class="search link icon"></i>
-			</div>
-		</div>
+<!DOCTYPE html
+<html lang="en">
 
-	</div>
-</div>
-<div style="height : 100vh;">
-	<section class="panel blue" id="first" style="background-size:cover;background-image: url('https://images.pexels.com/photos/316902/pexels-photo-316902.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500');">
-	<div id="container"></div>
-	</section>
-	<div id="trigger1"></div>
-	<section class="panel turqoise" id="second"style="background: white;">
-	<div class="spacer s2">
-		<div style="position: relative; left: 30%;">
-			<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="350" height="200">
-				<path id="word" style="stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1009.23px; stroke-dashoffset: 1009.23px;" fill="none" stroke="#000000" stroke-width="5" d="M22.328,70.018c9.867-7.4,10.724,20.434,13.014,28.694c-0.08-9.105-1.308-31.463,11.936-31.886
-						c11.313-0.361,17.046,19.368,16.367,28.098c-1.432-10.289,6.234-30.682,18.163-25.671c11.505,4.833,8.682,26.772,20.071,31.964
-						c13.06,5.953,14.854-8.305,19.734-17.017c7.188-12.836,4.933-15.417,29.6-14.8c-8.954-3.842-37.42,1.728-28.539,20.1
-						c5.823,12.045,34.911,12.583,30.018-8.873c-5.385,17.174,24.01,23.104,24.01,9.123c0-9.867,3.816-15.937,16.034-18.5
-						c8.359-1.754,18.982,4.754,25.9,9.25c-10.361-4.461-51.941-13.776-37.749,12.357c9.435,17.372,50.559,2.289,33.477-6.063
-						c-2.871,19.008,32.415,31.684,30.695,54.439c-2.602,34.423-66.934,24.873-79.302,2.134c-13.11-24.101,38.981-36.781,54.798-40.941
-						c8.308-2.185,42.133-12.162,25.88-25.587c-2.779,17.058,19.275,28.688,29.963,12.911c6.862-10.131,6.783-25.284,30.833-19.117
-						c-9.404-0.429-32.624-0.188-32.864,18.472c-0.231,17.912,21.001,21.405,40.882,11.951"></path>
-				<path id="dot" style="stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 44.2974px; stroke-dashoffset: 44.2974px;" fill="none" stroke="#000000" stroke-width="5" d="M247.003,38.567c-7.423,1.437-11.092,9.883-1.737,11.142c14.692,1.978,13.864-13.66,1.12-8.675"></path>
-				<path id="content_svg" style="stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 44.2974px; stroke-dashoffset: 44.2974px;" fill="none" stroke="#000000" stroke-width="5" d="M247.003,38.567c-7.423,1.437-11.092,9.883-1.737,11.142c14.692,1.978,13.864-13.66,1.12-8.675"></path>
-			</svg>
-		</div>
-		<div class="ui container">
-			<div class="ui stackable three column grid">
-				<div class="column">
-					<div class="image">
-						<img class="first_column"src="https://images.pexels.com/photos/806408/pexels-photo-806408.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
-					</div>
-				</div>
-				<div class="column">
-					<div class="image">
-						<img class="first_column"src="https://images.pexels.com/photos/619419/pexels-photo-619419.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
-					</div>
-				</div>
-				<div class="column">
-					<div class="image">
-						<img class="first_column"src="https://images.pexels.com/photos/1270184/pexels-photo-1270184.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500">
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	</section>
-	<div id="trigger2"></div>
-	<section class="panel green" id="third" style="background: white;">
-		<div class="ui stackable two column grid" style="height:100%">
-			<div class="column" id="column_black" style="background: black;height: 100%">
-				<div id="text-area">
-					<h1 style="color: white;font-family:fantasy ;font-size: 50px;float:left;">
-						<b>NCKU EE</b>
-					</h1>
-					<h3 style="color: gray; font-family:fantasy; font-size:30px">
-					Programming Experience :<br>
-							Java,Python,C
-					</h3>
-				</div>
-			</div>
-			<div class="column" id="column_image" style="background-image: url('https://images.pexels.com/photos/268833/pexels-photo-268833.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500');">
+<head>
 
-			</div>
-		</div>
-	</section>
-	<div id="trigger3"></div>
-	<section class="panel bordeaux" id= "fourth"style="background: white; height: 100%;">
-		<div class="ui container" id="ini_container">
-			<div class="ui stackable three column grid">
-				<div class="column">
-					<div class="effect">
-						<div class="image">
-							<img class="third_column"src="https://images.pexels.com/photos/35179/lonely-portrait-advertisement-black-and-white.jpg?auto=compress&cs=tinysrgb&dpr=2&w=500">
-						</div>
-					</div>
-				</div>
-				<div class="column">
-					<div class="effect">
-						<div class="image">
-							<img class="third_column"src="https://images.pexels.com/photos/1343298/pexels-photo-1343298.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500">
-						</div>
-					</div>
-				</div>
-				<div class="column">
-					<div class="effect">
-						<div class="image">
-							<img class="third_column"src="https://images.pexels.com/photos/210916/pexels-photo-210916.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500">
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div style="position: absolute; left: 33%; top:50vh; "><h1 style="font-size:70px;font-family:oblique;">MORE INFO</h1></div>
-		<div style="position: absolute; left: 40%; top:70vh; "><a href="https://github.com/changchiajung"><i class="github icon"></i></a></div>
-		<div style="position: absolute; left: 45%; top:70vh; "><a href="https://www.facebook.com/groups/nckuwebdesign/?ref=br_rs"><i class="facebook icon"></i></a></div>
-		<div style="position: absolute; left: 50%; top:70vh; "><a href="https://www.instagram.com/"><i class="instagram icon"></i></a></div>
-		<div style="position: absolute; left: 55%; top:70vh; "><a href="https://plus.google.com/discover"><i class="google plus icon"></i></a></div>
-		<div style="position: absolute; left: 33%; top:90vh; "><h2 style="font-size: 20px; font-family:italic;"><pre>NCKU     User     Interface     Practice</pre></h2></i></div>
-	</section>
-</div>
-<script>
-var bar = new ProgressBar.Circle(container, {
-  color: '#aaa',
-  // This has to be the same size as the maximum width to
-  // prevent clipping
-  strokeWidth: 6,
-  trailWidth: 3,
-  easing: 'easeInOut',
-  duration: 1400,
-  text: {
-    autoStyleContainer: false
-  },
-  from: { color: '#aaa', width: 3 },
-  to: { color: '#000', width: 6 },
-  // Set default step function for all animate calls
-  step: function(state, circle) {
-    circle.path.setAttribute('stroke', state.color);
-    circle.path.setAttribute('stroke-width', state.width);
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-    var value = Math.round(circle.value() * 100);
-    if (value === 0) {
-      circle.setText('PLAY?');
-    } else {
-      if(value === 100){
-      circle.setText("  ▶");
-      bar.text.style.color= "red";
-      bar.text.style.fontSize = '4rem';
-      bar.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
-      }else{
-      	circle.setText(value);
-		bar.text.style.color= "white";
-		bar.text.style.fontSize = '2rem';
-      }
-    }
-  }
-});
-bar.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
-bar.text.style.fontSize = '2rem';
-var time =0;
-$('#container').hover(function(){
-	time_count=setInterval(function(){if(time<100){time+=1;bar.animate(time/100,{duration:1});}else{}},20);
-},function(){clearInterval(time_count); time = 0; bar.animate(time)});
+  <title>Agency - Start Bootstrap Theme</title>
 
-</script>
-<script>
-	var section = 0;
-	$(function () { // wait for document ready
-		// init
-		var controller = new ScrollMagic.Controller({
-			globalSceneOptions: {
-				triggerHook: 'onLeave'
-			}
-		});
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-		// get all slides
-		var slides = document.querySelectorAll("section.panel");
+  <!-- Custom fonts for this template -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
-		// create scene for every slide
-		for (var i=0; i<slides.length; i++) {
-			new ScrollMagic.Scene({
-					triggerElement: slides[i]
-				})
-				.setPin(slides[i])
-				//.addIndicators() // add indicators (requires plugin)
-				.addTo(controller);
-		}
-		var controller_second = new ScrollMagic.Controller();
-		var scene = new ScrollMagic.Scene({triggerElement: "#trigger1"})
-					.setClassToggle(".first_column","show")
-					//.setVelocity(".ui .card",{opacity: 1},{duration: 400})
-					.addTo(controller_second);
-		var controller_third = new ScrollMagic.Controller();
-		var scene_third = new ScrollMagic.Scene({triggerElement: "#trigger2"})
-							.setClassToggle("#column_black","show_black")
-							.addTo(controller_third)
-		var controller_third_image = new ScrollMagic.Controller();
-		var scene_third_image = new ScrollMagic.Scene({triggerElement: "#trigger2"})
-							.setClassToggle("#column_image","show_image")
-							.addTo(controller_third_image)
-		var controller_fourth = new ScrollMagic.Controller();
-		var scene_fourth = new ScrollMagic.Scene({triggerElement: "#trigger3"})
-							.setClassToggle(".third_column","container_effect")
-							.addTo(controller_fourth)
-	});
-</script>
-<script>
-	function pathPrepare ($el) {
-		var lineLength = $el[0].getTotalLength();
-		$el.css("stroke-dasharray", lineLength);
-		$el.css("stroke-dashoffset", lineLength);
-	}
+  <!-- Custom styles for this template -->
+  <link href="css/agency.css" rel="stylesheet">
 
-	var $word = $("path#word");
-	var $dot = $("path#dot");
+</head>
 
-	// prepare SVG
-	pathPrepare($word);
-	pathPrepare($dot);
+<body id="page-top">
 
-	// init controller
-	var controller = new ScrollMagic.Controller();
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">ChangChiaJung</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Links
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav text-uppercase ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#skills">Skills</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#team">Team</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-	// build tween
-	var tween = new TimelineMax()
-		.add(TweenMax.to($word, 0.9, {strokeDashoffset: 0, ease:Linear.easeNone})) // draw word for 0.9
-		.add(TweenMax.to($dot, 0.1, {strokeDashoffset: 0, ease:Linear.easeNone}))  // draw dot for 0.1
-		.add(TweenMax.to("path", 1, {stroke: "#000000", ease:Linear.easeNone}), 0);			// change color during the whole thing
+  <!-- Header -->
+  <header class="masthead">
+    <div class="container">
+      <div class="intro-text">
+        <div class="intro-lead-in">Welcome To My WebSite!</div>
+        <div class="intro-heading text-uppercase">It's Nice To Meet You</div>
+        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#skills">Start to know about me</a>
+      </div>
+    </div>
+  </header>
 
-	// build scene
-	var scene = new ScrollMagic.Scene({triggerElement: "#trigger1", duration: 100, tweenChanges: true})
-					.setTween(tween)
-					.addTo(controller);
-</script>
-<script>
-	$(document).on('keypress',function(e) {
-    if(e.which == 13) {
-    	console.log(section%4);
-		section +=1;
-		var url = location.href;
-		if (section %4 ==0){
-			location.href = "";
-		}else if(section %4 ==1){
-			location.href = "#trigger1";
-		}else if(section %4 ==2){
-			location.href = "#trigger2";
-		}else{
-			location.href = "#trigger3";
-		}
-		history.replaceState(null,null,url);
-    }
-});
+  <!-- Services -->
+  <section class="page-section" id="skills">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading text-uppercase">Skills</h2>
+          <h3 class="section-subheading text-muted">The Skills and the personalities I have, help you to understand me quickly.</h3>
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col-md-4">
+          <span class="fa-stack fa-4x">
+            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+            <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
+          </span>
+          <h4 class="service-heading">Programming</h4>
+          <p class="text-muted">Familar with Python, C, Js, and Web techniques. Learning machine learing, operating system and database design.</p>
+        </div>
+        <div class="col-md-4">
+          <span class="fa-stack fa-4x">
+            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+            <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
+          </span>
+          <h4 class="service-heading">Software Engineering</h4>
+          <p class="text-muted">Multiple Project development experience. Full of experience in group discussion.</p>
+        </div>
+        <div class="col-md-4">
+          <span class="fa-stack fa-4x">
+            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+            <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
+          </span>
+          <h4 class="service-heading">Active</h4>
+         <p class="text-muted">Active and outgoing, easily to get into a new team. Accept new friend without regard to race, creed, or color.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-</script>
+  <!-- Portfolio Grid -->
+  <section class="bg-light page-section" id="portfolio">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading text-uppercase">Activities</h2>
+          <h3 class="section-subheading text-muted">Every important activity I had done. Including Project.</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 col-sm-6 portfolio-item">
+          <a class="portfolio-link"  href="https://github.com/fdfdd12345628/uidd2019_restaurant">
+            <div class="portfolio-hover">
+              <div class="portfolio-hover-content">
+                <i class="fas fa-arrow-right fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="img/portfolio/fastfood.jpg" alt="">
+          </a>
+          <div class="portfolio-caption">
+            <h4>Unmanned Restaurant</h4>
+            <p class="text-muted">A full system of unmanned restaurant.</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 portfolio-item">
+          <a class="portfolio-link" href="https://github.com/fdfdd12345628/summer_dbse">
+            <div class="portfolio-hover">
+              <div class="portfolio-hover-content">
+                <i class="fas fa-arrow-right fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="img/portfolio/facebock.jpg" alt="">
+          </a>
+          <div class="portfolio-caption">
+            <h4>FaceBock</h4>
+            <p class="text-muted">A Facebook-like Website, including online chat room and video chat.</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 portfolio-item">
+          <a class="portfolio-link" href="https://github.com/changchiajung/fingerprint">
+            <div class="portfolio-hover">
+              <div class="portfolio-hover-content">
+                <i class="fas fa-arrow-right fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="img/portfolio/fingerprint.jpg" alt="">
+          </a>
+          <div class="portfolio-caption">
+	    <h4>Finger Print Recognition</h4>
+            <p class="text-muted">Fork Webauthn's project, fulfill support TPM.</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 portfolio-item">
+          <a class="portfolio-link" data-toggle="modal" href="https://github.com/jason871110/travelMap">
+            <div class="portfolio-hover">
+              <div class="portfolio-hover-content">
+                <i class="fas fa-arrow-right fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="img/portfolio/travelmap.jpg" alt="">
+          </a>
+          <div class="portfolio-caption">
+            <h4>TravelMap</h4>
+            <p class="text-muted">A Project cooperated with tainan's hotel.</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 portfolio-item">
+          <a class="portfolio-link" data-toggle="modal" href="https://leetcode.com/changchiajung/">
+            <div class="portfolio-hover">
+              <div class="portfolio-hover-content">
+                <i class="fas fa-arrow-right fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="img/portfolio/code.jpg" alt="">
+          </a>
+          <div class="portfolio-caption">
+            <h4>Leetcode</h4>
+            <p class="text-muted">Practice algorithm.</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 portfolio-item">
+          <a class="portfolio-link" data-toggle="modal" href="https://github.com/changchiajung/api_usage_analyzer">
+            <div class="portfolio-hover">
+              <div class="portfolio-hover-content">
+                <i class="fas fa-arrow-right fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="img/portfolio/analysis.jpg" alt="">
+          </a>
+          <div class="portfolio-caption">
+            <h4>AST analysis</h4>
+            <p class="text-muted">Using AST to analysize api usage.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="page-section" id="about">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading text-uppercase">About</h2>
+          <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <ul class="timeline">
+            <li>
+              <div class="timeline-image">
+                <img class="rounded-circle img-fluid" src="img/about/1.jpg" alt="">
+              </div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h4>2009-2011</h4>
+                  <h4 class="subheading">Our Humble Beginnings</h4>
+                </div>
+                <div class="timeline-body">
+                  <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                </div>
+              </div>
+            </li>
+            <li class="timeline-inverted">
+              <div class="timeline-image">
+                <img class="rounded-circle img-fluid" src="img/about/2.jpg" alt="">
+              </div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h4>March 2011</h4>
+                  <h4 class="subheading">An Agency is Born</h4>
+                </div>
+                <div class="timeline-body">
+                  <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="timeline-image">
+                <img class="rounded-circle img-fluid" src="img/about/3.jpg" alt="">
+              </div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h4>December 2012</h4>
+                  <h4 class="subheading">Transition to Full Service</h4>
+                </div>
+                <div class="timeline-body">
+                  <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                </div>
+              </div>
+            </li>
+            <li class="timeline-inverted">
+              <div class="timeline-image">
+                <img class="rounded-circle img-fluid" src="img/about/4.jpg" alt="">
+              </div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h4>July 2014</h4>
+                  <h4 class="subheading">Phase Two Expansion</h4>
+                </div>
+                <div class="timeline-body">
+                  <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                </div>
+              </div>
+            </li>
+            <li class="timeline-inverted">
+              <div class="timeline-image">
+                <h4>Be Part
+                  <br>Of Our
+                  <br>Story!</h4>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section class="bg-light page-section" id="team">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading text-uppercase">More Information</h2>
+          <h3 class="section-subheading text-muted">You can access my social media, to get more information.</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="profile">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="profile">
+            <img class="mx-auto rounded-circle" src="img/profile.jpg" align="top"  alt="">
+            <h4>張嘉榮</h4>
+            <p class="text-muted">ChangChiaJung</p>
+            <ul class="list-inline social-buttons">
+              <li class="list-inline-item">
+                <a href="https://facebook.com/profile.php?id=100001251641521" style="vertical-align">
+                  <i class="fab fa-facebook-f media"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://www.instagram.com/rabbit20058/">
+                  <i class="fab fa-instagram media"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://www.linkedin.com/in/%E5%98%89%E6%A6%AE-%E5%BC%B5-539b2917b/">
+                  <i class="fab fa-linkedin-in media"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="profile">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center">
+          <p class="large text-muted">A student studying at NCKU EE. Will graduated at 2021.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Clients -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-sm-6">
+          <a href="#">
+            <img class="img-fluid d-block mx-auto" src="img/logos/envato.jpg" alt="">
+          </a>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <a href="#">
+            <img class="img-fluid d-block mx-auto" src="img/logos/designmodo.jpg" alt="">
+          </a>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <a href="#">
+            <img class="img-fluid d-block mx-auto" src="img/logos/themeforest.jpg" alt="">
+          </a>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <a href="#">
+            <img class="img-fluid d-block mx-auto" src="img/logos/creative-market.jpg" alt="">
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="page-section" id="contact">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading text-uppercase">Contact Us</h2>
+          <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <form id="contactForm" name="sentMessage" novalidate="novalidate">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input class="form-control" id="name" type="text" placeholder="Your Name *" required="required" data-validation-required-message="Please enter your name.">
+                  <p class="help-block text-danger"></p>
+                </div>
+                <div class="form-group">
+                  <input class="form-control" id="email" type="email" placeholder="Your Email *" required="required" data-validation-required-message="Please enter your email address.">
+                  <p class="help-block text-danger"></p>
+                </div>
+                <div class="form-group">
+                  <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" required="required" data-validation-required-message="Please enter your phone number.">
+                  <p class="help-block text-danger"></p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <textarea class="form-control" id="message" placeholder="Your Message *" required="required" data-validation-required-message="Please enter a message."></textarea>
+                  <p class="help-block text-danger"></p>
+                </div>
+              </div>
+              <div class="clearfix"></div>
+              <div class="col-lg-12 text-center">
+                <div id="success"></div>
+                <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Send Message</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-4">
+          <span class="copyright">Copyright &copy; Your Website 2019</span>
+        </div>
+        <div class="col-md-4">
+          <ul class="list-inline social-buttons">
+            <li class="list-inline-item">
+              <a href="#">
+                <i class="fab fa-twitter"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <ul class="list-inline quicklinks">
+            <li class="list-inline-item">
+              <a href="#">Privacy Policy</a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">Terms of Use</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Portfolio Modals -->
+
+  <!-- Modal 1 -->
+  <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+          <div class="lr">
+            <div class="rl"></div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <div class="modal-body">
+                <!-- Project Details Go Here -->
+                <h2 class="text-uppercase">Project Name</h2>
+                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                <img class="img-fluid d-block mx-auto" src="img/portfolio/01-full.jpg" alt="">
+                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                <ul class="list-inline">
+                  <li>Date: January 2017</li>
+                  <li>Client: Threads</li>
+                  <li>Category: Illustration</li>
+                </ul>
+                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                  <i class="fas fa-times"></i>
+                  Close Project</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 2 -->
+  <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+          <div class="lr">
+            <div class="rl"></div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <div class="modal-body">
+                <!-- Project Details Go Here -->
+                <h2 class="text-uppercase">Project Name</h2>
+                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                <img class="img-fluid d-block mx-auto" src="img/portfolio/02-full.jpg" alt="">
+                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                <ul class="list-inline">
+                  <li>Date: January 2017</li>
+                  <li>Client: Explore</li>
+                  <li>Category: Graphic Design</li>
+                </ul>
+                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                  <i class="fas fa-times"></i>
+                  Close Project</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 3 -->
+  <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+          <div class="lr">
+            <div class="rl"></div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <div class="modal-body">
+                <!-- Project Details Go Here -->
+                <h2 class="text-uppercase">Project Name</h2>
+                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                <img class="img-fluid d-block mx-auto" src="img/portfolio/03-full.jpg" alt="">
+                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                <ul class="list-inline">
+                  <li>Date: January 2017</li>
+                  <li>Client: Finish</li>
+                  <li>Category: Identity</li>
+                </ul>
+                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                  <i class="fas fa-times"></i>
+                  Close Project</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 4 -->
+  <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+          <div class="lr">
+            <div class="rl"></div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <div class="modal-body">
+                <!-- Project Details Go Here -->
+                <h2 class="text-uppercase">Project Name</h2>
+                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                <img class="img-fluid d-block mx-auto" src="img/portfolio/04-full.jpg" alt="">
+                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                <ul class="list-inline">
+                  <li>Date: January 2017</li>
+                  <li>Client: Lines</li>
+                  <li>Category: Branding</li>
+                </ul>
+                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                  <i class="fas fa-times"></i>
+                  Close Project</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 5 -->
+  <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+          <div class="lr">
+            <div class="rl"></div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <div class="modal-body">
+                <!-- Project Details Go Here -->
+                <h2 class="text-uppercase">Project Name</h2>
+                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                <img class="img-fluid d-block mx-auto" src="img/portfolio/05-full.jpg" alt="">
+                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                <ul class="list-inline">
+                  <li>Date: January 2017</li>
+                  <li>Client: Southwest</li>
+                  <li>Category: Website Design</li>
+                </ul>
+                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                  <i class="fas fa-times"></i>
+                  Close Project</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 6 -->
+  <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+          <div class="lr">
+            <div class="rl"></div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <div class="modal-body">
+                <!-- Project Details Go Here -->
+                <h2 class="text-uppercase">Project Name</h2>
+                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                <img class="img-fluid d-block mx-auto" src="img/portfolio/06-full.jpg" alt="">
+                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                <ul class="list-inline">
+                  <li>Date: January 2017</li>
+                  <li>Client: Window</li>
+                  <li>Category: Photography</li>
+                </ul>
+                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                  <i class="fas fa-times"></i>
+                  Close Project</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Contact form JavaScript -->
+  <script src="js/jqBootstrapValidation.js"></script>
+  <script src="js/contact_me.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/agency.min.js"></script>
+
 </body>
+
 </html>
