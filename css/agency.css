@@ -18,7 +18,7 @@ a {
 }
 
 a:hover {
-  color: #fec503;
+  color: #4db8ff;
 }
 
 .text-primary {
@@ -118,7 +118,7 @@ img::-moz-selection {
 }
 
 #mainNav .navbar-brand.active, #mainNav .navbar-brand:active, #mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover {
-  color: #fec503;
+  color: #4db8ff;
 }
 
 #mainNav .navbar-nav .nav-item .nav-link {
@@ -168,6 +168,7 @@ header.masthead {
   background-attachment: scroll;
   background-position: center center;
   background-size: cover;
+  height: 100%;
 }
 
 header.masthead .intro-text {
@@ -576,9 +577,12 @@ header.masthead .intro-text .intro-heading {
 
 section#contact {
   background-color: #212529;
-  background-image: url("../img/map-image.png");
+  background-image: url("../img/end.jpg");
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: bottom;
+  background-size: cover;
+  height: 82%;
+  
 }
 
 section#contact .section-heading {
